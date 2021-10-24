@@ -87,6 +87,24 @@ int CMtoSteps(float cm)
   return result; // End and return result
 }
 
+/* 
+resetCounters()
+  Resets all step counters to 0.
+  Inputs: None
+*/
+void resetCounters()
+{
+  counter_A = 0; //  reset counter A to zero
+  counter_B = 0; //  reset counter B to zero
+  counter_C = 0; //  reset counter B to zero
+  counter_D = 0; //  reset counter B to zero
+}
+
+/* 
+runMotors()
+  Runs the motors at specified speed and for a specified length.
+  Inputs: int steps, int speed
+*/
 void runMotors(int step, int speed)
 {
   while (step > counter_A && step > counter_B && step > counter_C && step > counter_D)
@@ -129,19 +147,15 @@ void runMotors(int step, int speed)
   analogWrite(enB, 0);
   analogWrite(enC, 0);
   analogWrite(enD, 0);
-  counter_A = 0; //  reset counter A to zero
-  counter_B = 0; //  reset counter B to zero
-  counter_C = 0; //  reset counter C to zero
-  counter_D = 0; //  reset counter D to zero
+  // Reset all counters
+  resetCounters();
 }
 
 // Function to Move Forward
 void MoveForward(int steps, int mspeed)
 {
-  counter_A = 0; //  reset counter A to zero
-  counter_B = 0; //  reset counter B to zero
-  counter_C = 0; //  reset counter B to zero
-  counter_D = 0; //  reset counter B to zero
+  // Reset all counters
+  resetCounters();
 
   // Set Motor A forward
   digitalWrite(in1, HIGH);
@@ -166,10 +180,8 @@ void MoveForward(int steps, int mspeed)
 // Function to Move in Reverse
 void MoveReverse(int steps, int mspeed)
 {
-  counter_A = 0; //  reset counter A to zero
-  counter_B = 0; //  reset counter B to zero
-  counter_C = 0; //  reset counter B to zero
-  counter_D = 0; //  reset counter B to zero
+  // Reset all counters
+  resetCounters();
 
   // Set Motor A reverse
   digitalWrite(in1, LOW);
@@ -179,7 +191,7 @@ void MoveReverse(int steps, int mspeed)
   digitalWrite(in3, LOW);
   digitalWrite(in4, HIGH);
 
-    // Set Motor C reverse
+  // Set Motor C reverse
   digitalWrite(in5, LOW);
   digitalWrite(in6, HIGH);
 
@@ -194,10 +206,8 @@ void MoveReverse(int steps, int mspeed)
 // Function to Spin Right
 void SpinRight(int steps, int mspeed)
 {
-  counter_A = 0; //  reset counter A to zero
-  counter_B = 0; //  reset counter B to zero
-  counter_C = 0; //  reset counter B to zero
-  counter_D = 0; //  reset counter B to zero
+  // Reset all counters
+  resetCounters();
 
   // Set Motor A reverse
   digitalWrite(in1, LOW);
@@ -207,7 +217,7 @@ void SpinRight(int steps, int mspeed)
   digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
 
-    // Set Motor C reverse
+  // Set Motor C reverse
   digitalWrite(in5, HIGH);
   digitalWrite(in6, LOW);
 
@@ -222,10 +232,7 @@ void SpinRight(int steps, int mspeed)
 // Function to Spin Left
 void SpinLeft(int steps, int mspeed)
 {
-  counter_A = 0; //  reset counter A to zero
-  counter_B = 0; //  reset counter B to zero
-  counter_C = 0; //  reset counter B to zero
-  counter_D = 0; //  reset counter B to zero
+  resetCounters();
 
   // Set Motor A forward
   digitalWrite(in1, HIGH);
@@ -255,21 +262,31 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(MOTOR_C), ISR_countC, RISING); // Increase counter C when speed sensor pin goes High
   attachInterrupt(digitalPinToInterrupt(MOTOR_D), ISR_countD, RISING); // Increase counter D when speed sensor pin goes High
 
-  // Test Motor Movement  - Experiment with your own sequences here
+  // Test Motor Movement:
 
-  MoveForward(CMtoSteps(50), 255);   // Forward half a metre at 255 speed
-  delay(1000);                       // Wait one second
-  MoveReverse(10, 255);              // Reverse 10 steps at 255 speed
-  delay(1000);                       // Wait one second
-  MoveForward(10, 150);              // Forward 10 steps at 150 speed
-  delay(1000);                       // Wait one second
-  MoveReverse(CMtoSteps(25.4), 200); // Reverse 25.4 cm at 200 speed
-  delay(1000);                       // Wait one second
-  SpinRight(20, 255);                // Spin right 20 steps at 255 speed
-  delay(1000);                       // Wait one second
-  SpinLeft(60, 175);                 // Spin left 60 steps at 175 speed
-  delay(1000);                       // Wait one second
-  MoveForward(1, 255);               // Forward 1 step at 255 speed
+  MoveForward(CMtoSteps(20), 255); // Ex: Forward at 255 speed for 20cm
+  delay(1000);                     // Wait one second
+  MoveReverse(CMtoSteps(20), 255);
+  delay(1000); // Wait one second
+  SpinRight(CMtoSteps(20), 255);
+  delay(1000); // Wait one second
+  SpinLeft(CMtoSteps(20), 255);
+  delay(1000); // Wait one second
+  MoveForward(CMtoSteps(20), 255);
+
+  // MoveForward(CMtoSteps(50), 255);   // Forward half a metre at 255 speed
+  // delay(1000);                       // Wait one second
+  // MoveReverse(10, 255);              // Reverse 10 steps at 255 speed
+  // delay(1000);                       // Wait one second
+  // MoveForward(10, 150);              // Forward 10 steps at 150 speed
+  // delay(1000);                       // Wait one second
+  // MoveReverse(CMtoSteps(25.4), 200); // Reverse 25.4 cm at 200 speed
+  // delay(1000);                       // Wait one second
+  // SpinRight(20, 255);                // Spin right 20 steps at 255 speed
+  // delay(1000);                       // Wait one second
+  // SpinLeft(60, 175);                 // Spin left 60 steps at 175 speed
+  // delay(1000);                       // Wait one second
+  // MoveForward(1, 255);               // Forward 1 step at 255 speed
 }
 
 void loop()
