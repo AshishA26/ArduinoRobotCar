@@ -1,5 +1,5 @@
 # ArduinoRobotCar
-Made using PlatformIO
+A robot car that drives a certain number of centimeters based on the value from the speed encoders. Made using PlatformIO.
 
 ## Links
 - https://www.youtube.com/watch?v=uW8YVcBjPGU
