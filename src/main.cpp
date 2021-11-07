@@ -1,8 +1,9 @@
 /*
   Made by Ashish Agrahari
 
-  With help of:
-  - DroneBot Workshop 2017
+  Links:
+  - github.com/ashisha26
+  Others:
   - http://dronebotworkshop.com
 */
 
