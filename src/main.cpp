@@ -1,12 +1,3 @@
-/*
-  Made by Ashish Agrahari
-
-  Links:
-  - github.com/ashisha26
-  Others:
-  - http://dronebotworkshop.com
-*/
-
 #include <Arduino.h>
 #include <TimerOne.h>
 
@@ -66,12 +57,12 @@ void ISR_countB()
 // Motor B pulse count ISR
 void ISR_countC()
 {
-  counter_C++; // increment Motor B counter value
+  counter_C++; // increment Motor C counter value
 }
 // Motor B pulse count ISR
 void ISR_countD()
 {
-  counter_D++; // increment Motor B counter value
+  counter_D++; // increment Motor D counter value
 }
 
 // Function to convert from centimeters to steps
