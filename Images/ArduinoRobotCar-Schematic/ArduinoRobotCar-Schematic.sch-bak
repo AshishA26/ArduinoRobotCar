@@ -519,17 +519,6 @@ Text Notes 7000 1000 2    118  ~ 0
 MOTORS, MOTOR DRIVERS
 Text Notes 9450 1000 2    118  ~ 0
 ENCODERS
-$Comp
-L ArduinoRobotCar-Schematic-rescue:HC-05_BLUETOOTH-AA_Custom_Components J?
-U 1 1 61E1A8A1
-P 6900 5850
-F 0 "J?" H 7728 5892 45  0001 L CNN
-F 1 "HC-05_BLUETOOTH" H 6528 5365 45  0000 L CNN
-F 2 "" H 7150 6200 20  0001 C CNN
-F 3 "" H 7200 5850 50  0001 C CNN
-	1    6900 5850
-	1    0    0    -1  
-$EndComp
 Wire Notes Line
 	6100 5250 6100 6500
 Wire Notes Line
