@@ -1,6 +1,8 @@
 # ArduinoRobotCar
 A robot car that drives a certain number of centimeters based on the value from the speed encoders. Made using PlatformIO.
 
+More coming soon.
+
 ## Links
 - https://www.youtube.com/watch?v=uW8YVcBjPGU
 - https://www.youtube.com/watch?v=JmvMvIphMnY
