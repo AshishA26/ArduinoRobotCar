@@ -3,6 +3,9 @@ A robot car that drives a certain number of centimeters based on the value from 
 
 More coming soon.
 
+## Schematic
+![Schematic](./Images/ArduinoRobotCar-Schematic/ArduinoRobotCar-Schematic.svg)
+
 ## Links
 - https://www.youtube.com/watch?v=uW8YVcBjPGU
 - https://www.youtube.com/watch?v=JmvMvIphMnY
