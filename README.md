@@ -1,7 +1,7 @@
 # ArduinoRobotCar
 A robot car that drives a certain number of centimeters based on the value from the speed encoders. Made using PlatformIO.
 
-More coming soon.
+This was a project meant to be a starting place for many other projects to branch off of.
 
 ## Schematic
 ![Schematic](./Images/ArduinoRobotCar-Schematic/ArduinoRobotCar-Schematic.svg)
